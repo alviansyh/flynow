@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../shared/theme.dart';
+import 'package:flynow/shared/theme.dart';
 
 class GetStartedPage extends StatelessWidget {
   const GetStartedPage({Key? key}) : super(key: key);
@@ -36,7 +36,7 @@ class GetStartedPage extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  'Explore new world with us and let \nyourself get an amazing experiences',
+                  'Explore new world with us \nand let yourself get an amazing experiences',
                   style: whiteTextStyle.copyWith(
                     fontSize: 16,
                     fontWeight: light,
@@ -51,11 +51,13 @@ class GetStartedPage extends StatelessWidget {
                     bottom: 50,
                   ),
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/sign-up');
+                    },
                     style: TextButton.styleFrom(
                       backgroundColor: kPrimaryColor,
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.circular(defaultRadius),
                       ),
                     ),
                     child: Text(
