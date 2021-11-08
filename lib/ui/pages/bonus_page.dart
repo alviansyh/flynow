@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flynow/shared/theme.dart';
+import 'package:flynow/ui/widgets/custom_button.dart';
 
 class BonusPage extends StatelessWidget {
   const BonusPage({Key? key}) : super(key: key);
@@ -126,28 +127,13 @@ class BonusPage extends StatelessWidget {
     }
 
     Widget submitButton() {
-      return Container(
-        width: 220,
-        height: 55,
+      return CustomButton(
+        title: 'Start Fly Now',
+        width: MediaQuery.of(context).size.width * 0.60,
         margin: const EdgeInsets.only(top: 50),
-        child: TextButton(
-          onPressed: () {},
-          style: TextButton.styleFrom(
-            backgroundColor: kPrimaryColor,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(
-                defaultRadius,
-              ),
-            ),
-          ),
-          child: Text(
-            'Start Fly Now',
-            style: whiteTextStyle.copyWith(
-              fontSize: 18,
-              fontWeight: medium,
-            ),
-          ),
-        ),
+        onPressed: () {
+          Navigator.pushNamed(context, '/main');
+        },
       );
     }
 
