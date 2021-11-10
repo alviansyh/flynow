@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flynow/shared/theme.dart';
 import 'package:flynow/ui/pages/detail_page.dart';
