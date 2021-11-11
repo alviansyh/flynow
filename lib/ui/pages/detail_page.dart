@@ -3,6 +3,7 @@ import 'package:flynow/shared/theme.dart';
 import 'package:flynow/ui/widgets/custom_button.dart';
 import 'package:flynow/ui/widgets/interest_item.dart';
 import 'package:flynow/ui/widgets/photo_item.dart';
+import 'package:flynow/ui/pages/choose_seat_page.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage({Key? key}) : super(key: key);
@@ -220,7 +221,14 @@ class DetailPage extends StatelessWidget {
                   // NOTE: BOOKING BUTTON
                   CustomButton(
                     title: 'Book Now',
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ChooseSeatPage(),
+                        ),
+                      );
+                    },
                     width: 170,
                   ),
                 ],
