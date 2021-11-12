@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flynow/shared/theme.dart';
+import 'package:flynow/ui/pages/checkout_page.dart';
 import 'package:flynow/ui/widgets/custom_button.dart';
 import 'package:flynow/ui/widgets/seat_item.dart';
 
@@ -318,7 +319,14 @@ class ChooseSeatPage extends StatelessWidget {
           top: 30,
           bottom: 46,
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const CheckoutPage(),
+            ),
+          );
+        },
       );
     }
 
