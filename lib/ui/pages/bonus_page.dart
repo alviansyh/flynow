@@ -132,7 +132,7 @@ class BonusPage extends StatelessWidget {
         width: MediaQuery.of(context).size.width * 0.60,
         margin: const EdgeInsets.only(top: 50),
         onPressed: () {
-          Navigator.pushNamed(context, '/main');
+          Navigator.pushNamedAndRemoveUntil(context, '/main', (route) => false);
         },
       );
     }

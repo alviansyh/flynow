@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1096355714558",
+    "project_id": "flynow-3379f",
+    "storage_bucket": "flynow-3379f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096355714558:android:858a72a774ea74505fdcaf",
+        "android_client_info": {
+          "package_name": "com.devalvin.flynow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1096355714558-soaipi1hri9j29i7fjrk1r02o3vqv4u5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCcpx8O4lPVxyfd0bdwPbqZJUl884rqGE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1096355714558-soaipi1hri9j29i7fjrk1r02o3vqv4u5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
