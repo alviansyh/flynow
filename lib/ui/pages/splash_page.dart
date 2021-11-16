@@ -1,8 +1,8 @@
 import 'dart:math' as math;
 import 'dart:async';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flynow/ui/pages/get_started_page.dart';
 import 'package:flynow/shared/theme.dart';
 
 class SplashPage extends StatefulWidget {
@@ -16,7 +16,13 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     Timer(const Duration(seconds: 3), () {
-      Navigator.pushNamed(context, '/get-started');
+      User? user = FirebaseAuth.instance.currentUser;
+
+      if (user == null) {
+        Navigator.pushNamedAndRemoveUntil(context, '/get-started', (route) => false);
+      } else {
+        Navigator.pushNamedAndRemoveUntil(context, '/main', (route) => false);
+      }
     });
     super.initState();
   }

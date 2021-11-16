@@ -5,13 +5,12 @@ import 'package:flynow/shared/theme.dart';
 import 'package:flynow/ui/widgets/custom_button.dart';
 import 'package:flynow/ui/widgets/custom_text_form_field.dart';
 
-class SignUpPage extends StatelessWidget {
-  SignUpPage({Key? key}) : super(key: key);
+class SignInPage extends StatelessWidget {
+  SignInPage({Key? key}) : super(key: key);
 
   final TextEditingController emailController = TextEditingController(text: '');
   final TextEditingController passwordController =
       TextEditingController(text: '');
-  final TextEditingController nameController = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +18,7 @@ class SignUpPage extends StatelessWidget {
       return Container(
         margin: const EdgeInsets.only(top: 30),
         child: Text(
-          'Join us and get \nyour next journey',
+          'Sign In \nwith your existing account',
           style: blackTextStyle.copyWith(
             fontSize: 24,
             fontWeight: semiBold,
@@ -29,14 +28,6 @@ class SignUpPage extends StatelessWidget {
     }
 
     Widget inputSection() {
-      Widget nameInput() {
-        return CustomTextFormField(
-          title: 'Full Name',
-          hintText: 'Your full name',
-          controller: nameController,
-        );
-      }
-
       Widget emailInput() {
         return CustomTextFormField(
           title: 'Email Address',
@@ -59,7 +50,7 @@ class SignUpPage extends StatelessWidget {
           listener: (context, state) {
             if (state is AuthSuccess) {
               Navigator.pushNamedAndRemoveUntil(
-                  context, '/bonus', (route) => false);
+                  context, '/main', (route) => false);
             } else if (state is AuthFailed) {
               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                 backgroundColor: kRedColor,
@@ -74,13 +65,13 @@ class SignUpPage extends StatelessWidget {
               );
             } else {
               return CustomButton(
-                title: 'Get Started',
+                title: 'Sign In',
                 width: MediaQuery.of(context).size.width * 0.60,
                 onPressed: () {
-                  context.read<AuthCubit>().signUp(
-                      email: emailController.text,
-                      password: passwordController.text,
-                      name: nameController.text);
+                  context.read<AuthCubit>().signIn(
+                        email: emailController.text,
+                        password: passwordController.text,
+                      );
                 },
               );
             }
@@ -100,7 +91,6 @@ class SignUpPage extends StatelessWidget {
         ),
         child: Column(
           children: [
-            nameInput(),
             emailInput(),
             passwordInput(),
             submitButton(),
@@ -109,10 +99,11 @@ class SignUpPage extends StatelessWidget {
       );
     }
 
-    Widget signInButton() {
+    Widget signUpButton() {
       return GestureDetector(
         onTap: () {
-          Navigator.pop(context);
+          Navigator.pushNamed(context, '/sign-up');
+          
         },
         child: Container(
           alignment: Alignment.center,
@@ -121,7 +112,7 @@ class SignUpPage extends StatelessWidget {
             bottom: 73,
           ),
           child: Text(
-            'Have an account? Sign In',
+            'Don\'t have an account? Sign Up',
             style: greyTextStyle.copyWith(
               fontSize: 16,
               fontWeight: light,
@@ -142,7 +133,7 @@ class SignUpPage extends StatelessWidget {
           children: [
             title(),
             inputSection(),
-            signInButton(),
+            signUpButton(),
           ],
         ),
       ),
